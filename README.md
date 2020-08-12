@@ -1,3 +1,5 @@
+# Bastion 
+![Bastion](images/Bastion-Server.png)
 SSH into DB server
 ssh -i ~/.ssh/DevOpsStudents.pem ubuntu@123.45.2.181 # DB Private IP
 
