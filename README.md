@@ -35,7 +35,7 @@ cc ../..
 
 cd /etc
 
-![1st gif](images/1st gif.gif)
+![1st gif](images/1st%20gif.gif)
 
 
 # Connecting to DB # old notes to keep
