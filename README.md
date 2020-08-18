@@ -13,17 +13,47 @@
 # Instructions 
 
 ## Connecting to DB
-1. ssh -i ~/.ssh/DevOpsStudents.pem ubuntu@123.45.2.18
-2. scp -i ~/.ssh/DevOpsStudents.pem -r ~/PycharmProjects/Testing_VPC_Network_Via_App/environment/db/provision ubuntu@123.45.2.181:/home/ubuntu/
-3. scp -i ~/.ssh/DevOpsStudents.pem -r ~/PycharmProjects/Testing_VPC_Network_Via_App/environment/db/mongod.conf ubuntu@123.45.2.181:/home/ubuntu/
+1) Secure copy db folder from OS to bastion to DB
+    ```
+    scp -i ~/.ssh/DevOpsStudents.pem -r ~/PycharmProjects/Testing_VPC_Network_Via_App/environment/db/ ubuntu@52.48.31.230:/home/ubuntu/
+    
+   # SSh into the bastion to move the devops keys here
+    scp -i ~/.ssh/DevOpsStudents.pem -r ~/PycharmProjects/Testing_VPC_Network_Via_App/environment/db/ ubuntu@123.45.2.181:/home/ubuntu/
+    ```
+   
+1) SSH to the bastion 
+    ```
+    ssh -i ~/.ssh/DevOpsStudents.pem ubuntu@52.48.31.230
+    ```
+   
+2) SSH to the DB 
+   ```
+    ssh -i ~/.ssh/DevOpsStudents.pem ubuntu@123.45.2.181
+    ```
+   
+ 3) Run the provision folder using ```./provision``` 
+
 
 ## Connecting to MongoDB through port 27017 on the App server 
-1. scp -i ~/.ssh/DevOpsStudents.pem -r ~/PycharmProjects/Testing_VPC_Network_Via_App/app/ ubuntu@52.48.31.230:/home/ubuntu/
-
-2. scp -i ~/.ssh/DevOpsStudents.pem -r ~/PycharmProjects/Testing_VPC_Network_Via_App/environment/app/ ubuntu@52.48.31.230:/home/ubuntu/
-
-3. ssh -i ~/.ssh/DevOpsStudents.pem ubuntu@52.48.31.230
-
+1. Secure copy the app folder from OS to the App VM 
+    ```
+    scp -i ~/.ssh/DevOpsStudents.pem -r ~/PycharmProjects/Testing_VPC_Network_Via_App/app/ ubuntu@123.45.1.45:/home/ubuntu/
+    ```
+   
+2. secure copy the environment/app/ folder to the app folder in the App VM
+    ```
+    scp -i ~/.ssh/DevOpsStudents.pem -r ~/PycharmProjects/Testing_VPC_Network_Via_App/environment/app/ ubuntu@5123.45.1.45:/home/ubuntu/
+    ```
+3. SSH into the app vm
+    ```
+    ssh -i ~/.ssh/DevOpsStudents.pem ubuntu@123.45.1.45
+    ```
+   
+4. Navigate into the app folder where app.js resides
+    ```apex
+    cd app
+    ./provision.sh
+    ```
 # Errors
 If we run ```sudo apt-get install nginx``` the download will stay on 0% as the private NACL subnet doesn't allow inbound communication from internet
 
@@ -58,12 +88,4 @@ Blocker Public NACL
 
 ## Proof
 ![proof](images/proof.png)
-Humzas Error
-- NACL private - Open all ports 
 
-- Checking Databse IP 
-- Checking DB Inbound rules 
-- Security groups for DB
-- Private NACL allowing all traffic 
-- Route table 
-- Subnet - route table - public
