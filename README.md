@@ -3,6 +3,9 @@
 ![1st gif](images/1st%20gif.gif)
 Video to set up webapp with bastion and database
 
+[Networking information](https://github.com/marwai/networking)
+Using information learnt from notes, I connected to port 27017 and port 80. 
+
 ## Things to remember 
 - SSH into DB server
 - ssh -i ~/.ssh/DevOpsStudents.pem ubuntu@123.45.2.181 # DB Private IP
