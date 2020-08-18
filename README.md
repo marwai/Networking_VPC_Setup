@@ -1,6 +1,8 @@
 # Bastion 
 
+## Diagram
 ![Bastion](images/Bastion-Server.png)
+```Key words``` : VPN, Bastion, IGW, Route Table, NACL, Security Groups 
 
 ## Things to remember 
 - SSH into DB server
