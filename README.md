@@ -1,4 +1,4 @@
-# Bastion 
+# N-TIER APPLICATION WITH AWS VIRTUAL PRIVATE CLOUD PROJECT:
 
 ![1st gif](images/1st%20gif.gif)
 Video to set up webapp with bastion and database
