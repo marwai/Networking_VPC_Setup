@@ -1,5 +1,7 @@
 # Bastion 
+
 ![1st gif](images/1st%20gif.gif)
+Video to set up webapp with bastion and database
 
 ## Things to remember 
 - SSH into DB server
